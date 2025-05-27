@@ -1,0 +1,14 @@
+.planner {
+  &__header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__info {
+    margin-right: var(--space-lg);
+
+    h2 {
+      margin: 0;
+    }
+  }
+}

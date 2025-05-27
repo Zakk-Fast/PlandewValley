@@ -1,0 +1,38 @@
+.farmer-info {
+  display: flex;
+  flex-direction: column;
+
+  & p {
+    font-weight: bold;
+    margin: 0;
+  }
+
+  &--level {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+
+    & select {
+      border: var(--border-sm);
+      background: var(--color-surface);
+      height: 22px;
+      margin-bottom: 6px;
+    }
+  }
+
+  &--professions {
+    & ul {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-lg);
+
+      & li {
+        & input {
+          margin-left: var(--space-sm);
+        }
+      }
+    }
+  }
+}

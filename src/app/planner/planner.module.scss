@@ -1,3 +1,14 @@
 .planner {
-  height: 4000px;
+  display: flex;
+  flex-direction: column;
+
+  &__workspace {
+    display: flex;
+    flex-direction: row;
+  }
+
+  // & div {
+  //   border: var(--border);
+  //   padding: 8px;
+  // }
 }
