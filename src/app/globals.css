@@ -1,0 +1,199 @@
+/* ========== FONT IMPORTS ========== */
+@font-face {
+  font-family: "Kalam";
+  src: url("/font/kalam/Kalam-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kalam";
+  src: url("/font/kalam/Kalam-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kalam";
+  src: url("/font/kalam/Kalam-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/font/nunito/Nunito-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========== RESET / BASE ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* ========== CSS VARIABLES ========== */
+:root {
+  --color-bg: #fdf6e3;
+  --color-surface: #fff8dc;
+  --color-text: #fff;
+  --color-accent: #4caf50;
+  --color-accent-dark: #388e3c;
+  --color-border: #ddd4a5;
+  --color-muted: #888;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --transition-fast: 0.15s ease-in-out;
+
+  --font-body: "Kalam", cursive;
+  --font-title: "Nunito", sans-serif;
+}
+
+/* Dark mode theme */
+[data-theme="dark"] {
+  --color-bg: #1c1b18;
+  --color-surface: #2b2924;
+  --color-text: #fdf6e3;
+  --color-accent: #81c784;
+  --color-accent-dark: #66bb6a;
+  --color-border: #3c3b37;
+  --color-muted: #aaa;
+}
+
+/* ========== TYPOGRAPHY ========== */
+body {
+  /* background: var(--color-bg); */
+  background-image: url("/image/stardewbackground.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings and links use Nunito */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Body text, list items, and small text use Kalam */
+a,
+p,
+li,
+small {
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+/* Font sizes (mobile-first) */
+h1 {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+}
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-md);
+}
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+}
+h4 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-sm);
+}
+p,
+a,
+li {
+  font-size: 1rem;
+  margin-bottom: var(--space-sm);
+}
+small {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+/* Tablet scaling */
+@media (min-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2.125rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  p,
+  a,
+  li {
+    font-size: 1.125rem;
+  }
+  small {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop scaling */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1.75rem;
+  }
+  p,
+  a,
+  li {
+    font-size: 1.25rem;
+  }
+  small {
+    font-size: 1.125rem;
+  }
+}
