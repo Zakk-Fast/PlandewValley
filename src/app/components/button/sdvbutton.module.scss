@@ -1,0 +1,29 @@
+.sdvButton {
+  background-image: url("/image/woodgrain.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid #4a2105;
+  border-radius: 6px;
+  color: #3a1e00;
+  font-family: var(--font-body, "Kalam", cursive);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  cursor: pointer;
+  box-shadow: inset -1px -1px 0 #f2b45d, 2px 2px 0 #4a2105;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    background-color: transparent;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: inset -1px -1px 0 #ffd17e, 5px 5px 0 #3c1b04;
+  }
+
+  &:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: inset 1px 1px 0 #ffd17e, 1px 1px 0 #3c1b04;
+  }
+
+  
+}
