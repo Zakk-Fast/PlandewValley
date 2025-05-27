@@ -18,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
+        <div className="header-spacer" />``
         {children}
       </body>
     </html>

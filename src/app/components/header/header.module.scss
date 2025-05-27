@@ -4,7 +4,9 @@
   -webkit-backdrop-filter: blur(3px);
   border-bottom: 1px solid var(--color-border);
   padding: var(--space-sm) var(--space-md);
-  position: sticky;
+  position: fixed;
+  height: 64px;
+  width: 100vw;
   top: 0;
   z-index: 100;
 

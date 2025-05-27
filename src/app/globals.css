@@ -45,6 +45,13 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
 /* ========== CSS VARIABLES ========== */
 :root {
   --color-bg: #fdf6e3;
@@ -120,6 +127,7 @@ li,
 small {
   font-family: var(--font-body);
   color: var(--color-text);
+  text-decoration: none;
 }
 
 /* Font sizes (mobile-first) */
@@ -148,6 +156,10 @@ li {
 small {
   font-size: 0.875rem;
   color: var(--color-muted);
+}
+
+.header-spacer {
+  height: 64px;
 }
 
 /* Tablet scaling */
