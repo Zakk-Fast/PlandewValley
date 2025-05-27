@@ -1,5 +1,5 @@
 // components/SDVButton.tsx
-import styles from "./sdvButton.module.scss";
+import styles from "./sdvbutton.module.scss";
 
 type SDVButtonProps = {
   children: React.ReactNode;
