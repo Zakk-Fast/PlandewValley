@@ -1,8 +1,6 @@
-.planner {
-  &__header {
-    display: flex;
-    flex-direction: row;
-  }
+.header {
+  display: flex;
+  flex-direction: row;
 
   &__info {
     margin-right: var(--space-lg);
@@ -10,5 +8,13 @@
     h2 {
       margin: 0;
     }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    max-width: 480;
+    width: 100%;
   }
 }

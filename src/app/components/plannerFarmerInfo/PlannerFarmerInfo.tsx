@@ -1,44 +1,12 @@
-import { useState } from "react";
+import { useFarmerStore } from "../../../store/useFarmerStore";
 
 import style from "./plannerFarmerInfo.module.scss";
 
 export default function FarmerInfo() {
-  const [level, setLevel] = useState(1);
-  const [professions, setProfessions] = useState({
-    tiller: false,
-    artisan: false,
-    agriculturist: false,
-  });
-
-  console.log(professions, setProfessions);
-
-  const handleProfessionChange = (key: keyof typeof professions) => {
-    setProfessions((prev) => {
-      const updated = { ...prev, [key]: !prev[key] };
-
-      // Auto-select Tiller if Artisan or Agriculturist is being turned on
-      if ((key === "artisan" || key === "agriculturist") && updated[key]) {
-        updated.tiller = true;
-      }
-
-      // If Tiller is being turned off, clear both advanced professions
-      if (key === "tiller" && !updated.tiller) {
-        updated.artisan = false;
-        updated.agriculturist = false;
-      }
-
-      // Enforce mutual exclusivity between artisan/agriculturist
-      if (key === "artisan" && updated.artisan) {
-        updated.agriculturist = false;
-      }
-
-      if (key === "agriculturist" && updated.agriculturist) {
-        updated.artisan = false;
-      }
-
-      return updated;
-    });
-  };
+  const level = useFarmerStore((state) => state.farmingLevel);
+  const professions = useFarmerStore((state) => state.professions);
+  const setFarmerLevel = useFarmerStore((state) => state.setFarmingLevel);
+  const toggleProfession = useFarmerStore((state) => state.toggleProfession);
 
   return (
     <div className={style["farmer-info"]}>
@@ -49,8 +17,9 @@ export default function FarmerInfo() {
           <select
             id="farming-level"
             value={level}
-            onChange={() => (e: React.ChangeEvent<HTMLInputElement>) =>
-              setLevel(Number(e.target.value))}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              setFarmerLevel(Number(e.target.value))
+            }
           >
             {Array.from({ length: 10 }, (_, i) => (
               <option key={i + 1} value={i + 1}>
@@ -67,7 +36,7 @@ export default function FarmerInfo() {
               <input
                 type="checkbox"
                 checked={professions.tiller}
-                onChange={() => handleProfessionChange("tiller")}
+                onChange={() => toggleProfession("tiller")}
               />
             </li>
             <li>
@@ -75,7 +44,7 @@ export default function FarmerInfo() {
               <input
                 type="checkbox"
                 checked={professions.artisan}
-                onChange={() => handleProfessionChange("artisan")}
+                onChange={() => toggleProfession("artisan")}
               />
             </li>
             <li>
@@ -83,7 +52,7 @@ export default function FarmerInfo() {
               <input
                 type="checkbox"
                 checked={professions.agriculturist}
-                onChange={() => handleProfessionChange("agriculturist")}
+                onChange={() => toggleProfession("agriculturist")}
               />
             </li>
           </ul>
