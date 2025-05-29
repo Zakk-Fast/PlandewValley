@@ -1,4 +1,5 @@
 import { useFarmerStore } from "../../../store/useFarmerStore";
+import Select from "../select/Select";
 
 import style from "./plannerFarmerInfo.module.scss";
 
@@ -8,25 +9,22 @@ export default function FarmerInfo() {
   const setFarmerLevel = useFarmerStore((state) => state.setFarmingLevel);
   const toggleProfession = useFarmerStore((state) => state.toggleProfession);
 
+  const selectOptions = Array.from({ length: 10 }, (_, i) => i + 1);
+
   return (
     <div className={style["farmer-info"]}>
       <h4>Farmer Info</h4>
       <div>
         <div className={style["farmer-info--level"]}>
           <p>Farmer Level:</p>
-          <select
+          <Select
             id="farming-level"
             value={level}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
               setFarmerLevel(Number(e.target.value))
             }
-          >
-            {Array.from({ length: 10 }, (_, i) => (
-              <option key={i + 1} value={i + 1}>
-                {i + 1}
-              </option>
-            ))}
-          </select>
+            options={selectOptions}
+          />
         </div>
         <div className={style["farmer-info--professions"]}>
           <p>Farmer Professions</p>

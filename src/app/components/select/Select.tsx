@@ -1,5 +1,5 @@
 type SelectProps = {
-  options: string[];
+  options: string[] | number[];
   id: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   value?: string | number | readonly string[] | undefined;
