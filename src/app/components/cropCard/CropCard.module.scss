@@ -1,0 +1,45 @@
+.crop_card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 320px;
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: var(--space-sm);
+    gap: var(--space-xs);
+
+    & p {
+      margin: 0;
+      padding: 0;
+      line-height: 0.8;
+      font-weight: 600;
+    }
+
+    & :last-child {
+      font-style: italic;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  &__stats {
+    border: 1px solid green;
+    flex: 0 0 200px;
+  }
+
+  &__price,
+  &__gold-per-day,
+  &__growth {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

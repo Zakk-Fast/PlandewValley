@@ -56,6 +56,7 @@ body {
 :root {
   --color-bg: #fdf6e3;
   --color-surface: #f5a061;
+  --color-backdrop: #c6824e;
   --color-text: #fff;
   --color-accent: #4caf50;
   --color-accent-dark: #388e3c;

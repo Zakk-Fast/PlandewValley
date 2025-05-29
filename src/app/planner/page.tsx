@@ -1,7 +1,8 @@
 import MenuPanel from "app/components/menuPanel/MenuPanel";
+import PlannerHeader from "app/components/plannerHeader/PlannerHeader";
+import CropLibrary from "app/components/cropLibrary/CropLibrary";
 
 import style from "./planner.module.scss";
-import PlannerHeader from "app/components/plannerHeader/PlannerHeader";
 
 export default function PlannerPage() {
   return (
@@ -10,7 +11,10 @@ export default function PlannerPage() {
         <PlannerHeader />
 
         <div className={style.planner__workspace}>
-          <div className={style["planner__crop-library"]}>Crop Library</div>
+          <div className={style["planner__crop-library"]}>
+            Crop Library
+            <CropLibrary />
+          </div>
           <div className={style["planner__plot-grid"]}>Planner Grid</div>
         </div>
 

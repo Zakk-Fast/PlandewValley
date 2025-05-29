@@ -1,0 +1,16 @@
+.crop_library {
+  height: 450px;
+  border: 1px solid red;
+  overflow-y: auto;
+  border: var(--border-sm);
+  padding: var(--space-sm);
+  background-color: var(--color-backdrop);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+}
