@@ -1,14 +1,13 @@
 .planner {
   display: flex;
   flex-direction: column;
+  max-width: 1020px;
 
   &__workspace {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
   }
-
-  // & div {
-  //   border: var(--border);
-  //   padding: 8px;
-  // }
 }

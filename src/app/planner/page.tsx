@@ -1,7 +1,7 @@
 import MenuPanel from "app/components/menuPanel/MenuPanel";
 import PlannerHeader from "app/components/plannerHeader/PlannerHeader";
 import CropLibrary from "app/components/cropLibrary/CropLibrary";
-
+import PlannerPlot from "app/components/plannerPlot/PlannerPlot";
 import style from "./planner.module.scss";
 
 export default function PlannerPage() {
@@ -14,7 +14,9 @@ export default function PlannerPage() {
           <div className={style["planner__crop-library"]}>
             <CropLibrary />
           </div>
-          <div className={style["planner__plot-grid"]}>Planner Grid</div>
+          <div className={style["planner__plot-grid"]}>
+            <PlannerPlot />
+          </div>
         </div>
 
         <div className={style.planner__profit}>Profit Foot</div>

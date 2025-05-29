@@ -1,0 +1,26 @@
+.button {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  color: black;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: var(--border-rd-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 1px 1px 0 var(--color-border);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-backdrop);
+    box-shadow: 2px 2px 0 var(--color-border);
+  }
+
+  &:active:not(:disabled) {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--color-border);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-position: center;
   border: 6px solid #9a420f;
-  border-radius: 6px;
+  border-radius: var(--border-rd-sm);
   color: #3a1e00;
   font-family: var(--font-body, "Kalam", cursive);
   font-size: 1.1rem;

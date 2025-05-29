@@ -1,8 +1,8 @@
 import Image from "next/image";
-import SDVButton from "./components/button/SDVbutton";
 
 import styles from "./page.module.scss";
 import Link from "next/link";
+import Button from "./components/button/Button";
 
 export default function Home() {
   return (
@@ -20,11 +20,11 @@ export default function Home() {
         <p className={styles["page__subtitle"]}>
           An interactive crop planner and profitability tool for Stardew Valley.
         </p>
-        <SDVButton>
+        <Button>
           <Link className={styles["page__cta"]} href="/planner">
             Start Planning
           </Link>
-        </SDVButton>
+        </Button>
       </main>
     </div>
   );

@@ -1,10 +1,15 @@
+.crop_header {
+  height: 40px;
+}
+
 .crop_library {
   height: 450px;
   width: 322px;
   border: 1px solid red;
   overflow-y: auto;
   border: var(--border-sm);
-  padding: var(--space-sm);
+  border-radius: var(--border-rd-sm);
+  padding: var(--space-xs);
   background-color: var(--color-backdrop);
 
   &::-webkit-scrollbar {

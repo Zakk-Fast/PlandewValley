@@ -21,7 +21,8 @@ export default function RootLayout({
       <body>
         <Header />
         <div className="wrapper">{children}</div>
-        <Footer />
+        {/* <Footer /> */}
+        {/* @TODO: Replace footer with a ? and pop-out */}
       </body>
     </html>
   );

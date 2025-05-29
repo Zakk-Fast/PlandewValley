@@ -23,13 +23,15 @@ export default function CropLibrary() {
 
   return (
     <>
-      Season:{" "}
-      <Select
-        options={seasons}
-        value={selection}
-        onChange={handleSelection}
-        id="season-select"
-      />
+      <div className={style.crop_header}>
+        Season:{" "}
+        <Select
+          options={seasons}
+          value={selection}
+          onChange={handleSelection}
+          id="season-select"
+        />
+      </div>
       <div className={style.crop_library}>
         {filteredCrops.map((crop) => {
           return (

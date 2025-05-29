@@ -1,0 +1,17 @@
+.planner_plot {
+  width: 660px;
+}
+
+.header {
+  height: 40px;
+  text-align: right;
+  padding: 0 var(--space-md);
+}
+
+.planner {
+  height: 450px;
+  border: var(--border-sm);
+  border-radius: var(--border-rd-sm);
+  display: flex;
+  flex-direction: column;
+}

@@ -11,15 +11,10 @@ export default function FarmerInfo() {
   const toggleProfession = useFarmerStore((state) => state.toggleProfession);
 
   const selectOptions = Array.from({ length: 10 }, (_, i) => i + 1);
-  // const professionsCheck = {
-  //   tiller: true,
-  //   artisan: false,
-  //   agriculturist: true,
-  // };
 
   return (
     <div className={style["farmer-info"]}>
-      <h4>Farmer Info</h4>
+      <h3>Farmer Info</h3>
       <div>
         <div className={style["farmer-info--level"]}>
           <p>Farmer Level:</p>

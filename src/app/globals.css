@@ -80,6 +80,8 @@ body {
 
   --border: 6px solid var(--color-border);
   --border-sm: 2px solid var(--color-border);
+  --border-rd-sm: 4px;
+  --border-rd-md: 8px;
 
 }
 
