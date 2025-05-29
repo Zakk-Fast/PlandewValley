@@ -54,10 +54,10 @@ body {
 
 /* ========== CSS VARIABLES ========== */
 :root {
-  --color-bg: #fdf6e3;
+  /* --color-text-white: #fdf6e3; */
   --color-surface: #f5a061;
   --color-backdrop: #c6824e;
-  --color-text: #fff;
+  --color-text: #fdf6e3;
   --color-accent: #4caf50;
   --color-accent-dark: #388e3c;
   --color-border: #9a420f;

@@ -1,0 +1,30 @@
+.footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: var(--space-md);
+  line-height: 1.4;
+
+  p {
+    color: var(--color-text);
+  }
+
+  a,
+  p {
+    font-size: 14px;
+  }
+}
+
+.footer a {
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer a:hover {
+  opacity: 0.8;
+}
