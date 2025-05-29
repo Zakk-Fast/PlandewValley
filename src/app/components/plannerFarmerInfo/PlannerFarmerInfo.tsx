@@ -1,4 +1,5 @@
 import { useFarmerStore } from "../../../store/useFarmerStore";
+import Checkbox from "../checkbox/Checkbox";
 import Select from "../select/Select";
 
 import style from "./plannerFarmerInfo.module.scss";
@@ -10,6 +11,11 @@ export default function FarmerInfo() {
   const toggleProfession = useFarmerStore((state) => state.toggleProfession);
 
   const selectOptions = Array.from({ length: 10 }, (_, i) => i + 1);
+  // const professionsCheck = {
+  //   tiller: true,
+  //   artisan: false,
+  //   agriculturist: true,
+  // };
 
   return (
     <div className={style["farmer-info"]}>
@@ -29,30 +35,18 @@ export default function FarmerInfo() {
         <div className={style["farmer-info--professions"]}>
           <p>Farmer Professions</p>
           <ul>
-            <li>
-              Tiller
-              <input
-                type="checkbox"
-                checked={professions.tiller}
-                onChange={() => toggleProfession("tiller")}
-              />
-            </li>
-            <li>
-              Artisan
-              <input
-                type="checkbox"
-                checked={professions.artisan}
-                onChange={() => toggleProfession("artisan")}
-              />
-            </li>
-            <li>
-              Agricultarist
-              <input
-                type="checkbox"
-                checked={professions.agriculturist}
-                onChange={() => toggleProfession("agriculturist")}
-              />
-            </li>
+            {Object.entries(professions).map(([key, value]) => (
+              <li key={key}>
+                <Checkbox
+                  id={key}
+                  label={key.charAt(0).toUpperCase() + key.slice(1)}
+                  checked={value}
+                  onChange={() =>
+                    toggleProfession(key as keyof typeof professions)
+                  }
+                />
+              </li>
+            ))}
           </ul>
         </div>
       </div>
