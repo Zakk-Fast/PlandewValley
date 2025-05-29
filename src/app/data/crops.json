@@ -1,6 +1,7 @@
 [
   {
     "name": "Blue Jazz",
+    "seasons": ["spring"],
     "category": "flower",
     "image_key": "blue_jazz",
     "seed_price": 30,
@@ -21,6 +22,7 @@
   },
   {
     "name": "Carrot",
+    "seasons": ["spring"],
     "category": "vegetable",
     "image_key": "carrot",
     "seed_price": null,
@@ -41,6 +43,7 @@
   },
   {
     "name": "Cauliflower",
+    "seasons": ["spring"],
     "category": "vegetable",
     "image_key": "cauliflower",
     "seed_price": 80,
@@ -61,6 +64,7 @@
   },
   {
     "name": "Coffee Bean",
+    "seasons": ["spring"],
     "category": "special",
     "image_key": "coffee_bean",
     "seed_price": null,
@@ -81,6 +85,7 @@
   },
   {
     "name": "Garlic",
+    "seasons": ["spring"],
     "category": "vegetable",
     "image_key": "garlic",
     "seed_price": 40,
@@ -101,6 +106,7 @@
   },
   {
     "name": "Green Bean",
+    "seasons": ["spring"],
     "category": "vegetable",
     "image_key": "green_bean",
     "seed_price": 60,
@@ -121,6 +127,7 @@
   },
   {
     "name": "Kale",
+    "seasons": ["spring"],
     "category": "vegetable",
     "image_key": "kale",
     "seed_price": 70,
@@ -141,6 +148,7 @@
   },
   {
     "name": "Parsnip",
+    "seasons": ["spring"],
     "category": "vegetable",
     "image_key": "parsnip",
     "seed_price": 20,
@@ -161,6 +169,7 @@
   },
   {
     "name": "Potato",
+    "seasons": ["spring"],
     "category": "vegetable",
     "image_key": "potato",
     "seed_price": 50,
@@ -181,6 +190,7 @@
   },
   {
     "name": "Rhubarb",
+    "seasons": ["spring"],
     "category": "fruit",
     "image_key": "rhubarb",
     "seed_price": 100,
@@ -201,6 +211,7 @@
   },
   {
     "name": "Strawberry",
+    "seasons": ["spring"],
     "category": "fruit",
     "image_key": "strawberry",
     "seed_price": 100,
@@ -221,6 +232,7 @@
   },
   {
     "name": "Tulip",
+    "seasons": ["spring"],
     "category": "flower",
     "image_key": "tulip",
     "seed_price": 20,
@@ -241,6 +253,7 @@
   },
   {
     "name": "Unmilled Rice",
+    "seasons": ["spring"],
     "category": "vegetable",
     "image_key": "unmilled_rice",
     "seed_price": 40,

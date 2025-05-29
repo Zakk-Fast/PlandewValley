@@ -30,8 +30,11 @@ export const PROCESS_TYPE_GROUPS = {
   special: ["coffee", "beer", "pale_ale"] as ProcessType[],
 };
 
+type Seasons = "Spring" | "Summer" | "Fall" | "Winter";
+
 export type Crop = {
   name: string;
+  season: Seasons[];
   image_key: string;
   category: CropCategory;
   seed_price: number | null;

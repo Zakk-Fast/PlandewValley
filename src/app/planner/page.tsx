@@ -12,7 +12,6 @@ export default function PlannerPage() {
 
         <div className={style.planner__workspace}>
           <div className={style["planner__crop-library"]}>
-            Crop Library
             <CropLibrary />
           </div>
           <div className={style["planner__plot-grid"]}>Planner Grid</div>

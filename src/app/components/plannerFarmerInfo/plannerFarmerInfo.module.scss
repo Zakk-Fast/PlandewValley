@@ -13,13 +13,6 @@
     align-items: center;
     gap: var(--space-sm);
     margin-bottom: var(--space-md);
-
-    & select {
-      border: var(--border-sm);
-      background: var(--color-surface);
-      height: 22px;
-      margin-bottom: 6px;
-    }
   }
 
   &--professions {

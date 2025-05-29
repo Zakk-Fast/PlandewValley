@@ -1,0 +1,11 @@
+.select {
+  border: var(--border-sm);
+  background: var(--color-surface);
+  height: 22px;
+  margin-bottom: 6px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
