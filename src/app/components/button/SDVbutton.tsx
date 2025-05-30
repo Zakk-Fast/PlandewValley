@@ -1,4 +1,3 @@
-// components/SDVButton.tsx
 import styles from "./sdvbutton.module.scss";
 
 type SDVButtonProps = {

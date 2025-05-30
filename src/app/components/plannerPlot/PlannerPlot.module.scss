@@ -14,8 +14,8 @@
   border-radius: var(--border-rd-sm);
   background-color: var(--color-backdrop);
   display: flex;
-  flex-wrap: wrap; // ✅ allow wrapping
-  gap: var(--space-sm); // ✅ space between items
+  flex-wrap: wrap;
+  gap: var(--space-sm);
   align-items: flex-start;
   padding: var(--space-sm);
   overflow-y: auto;
@@ -27,7 +27,7 @@
   }
 
   & > * {
-    flex: 1 1 calc(50% - var(--space-sm)); // ✅ 2 per row
+    flex: 1 1 calc(50% - var(--space-sm));
     max-width: calc(50% - var(--space-sm));
   }
 }

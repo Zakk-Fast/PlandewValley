@@ -45,30 +45,3 @@ export type Crop = {
   description: string;
   notes: string | null;
 };
-
-/*
-
-
-{
-    "name": "",
-    "category": "",
-    "image_key": "",
-    "seed_price": null,
-    "growth": {
-      "base_days": ,
-      "regrowth_days": null
-    },
-    "sell_prices": {
-      "base": ,
-      "silver": ,
-      "gold": ,
-      "iridium": 
-    },
-    "base_gold_per_day": ,
-    "artisan_products": []
-  }
-
-
-*/
-
-// need to handle potato an their change to yeild mulitple

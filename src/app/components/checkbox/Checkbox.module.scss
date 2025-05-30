@@ -1,7 +1,7 @@
 .checkboxContainer {
   display: flex;
   align-items: center;
-  gap: var(--space-sxs);
+  gap: var(--space-xs);
   cursor: pointer;
   user-select: none;
 }
@@ -16,7 +16,7 @@
   cursor: pointer;
   position: relative;
   transition: background-color 0.2s ease;
-  margin-bottom: 3px;
+  margin: 0 6px 3px 0;
 }
 
 .checkboxContainer input:checked {

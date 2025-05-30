@@ -19,9 +19,11 @@ export const useFieldCards = create<FieldCardState>((set) => ({
           ...formData,
           id: nanoid(),
           initialized: true,
-          cropId: null, // ← this was missing
+          cropId: null,
           cropName: null,
           cropImageSrc: null,
+          seedCost: formData.seedCost ?? null,
+          fertilizerCost: formData.fertilizerCost ?? null,
           daysToFirstHarvest: null,
           daysToSubsequentHarvest: null,
         },
