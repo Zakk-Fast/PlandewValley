@@ -2,6 +2,7 @@ import MenuPanel from "app/components/menuPanel/MenuPanel";
 import PlannerHeader from "app/components/plannerHeader/PlannerHeader";
 import CropLibrary from "app/components/cropLibrary/CropLibrary";
 import PlannerPlot from "app/components/plannerPlot/PlannerPlot";
+
 import style from "./planner.module.scss";
 
 export default function PlannerPage() {

@@ -1,17 +1,6 @@
 import { create } from "zustand";
 
-type Professions = {
-  tiller: boolean;
-  artisan: boolean;
-  agriculturist: boolean;
-};
-
-type Farmer = {
-  farmingLevel: number;
-  professions: Professions;
-  setFarmingLevel: (level: number) => void;
-  toggleProfession: (key: keyof Professions) => void;
-};
+import { Farmer } from "types/Farmer";
 
 export const useFarmerStore = create<Farmer>((set) => ({
   farmingLevel: 1,

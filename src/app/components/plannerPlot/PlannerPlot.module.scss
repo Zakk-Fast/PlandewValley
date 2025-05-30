@@ -12,6 +12,22 @@
   height: 450px;
   border: var(--border-sm);
   border-radius: var(--border-rd-sm);
+  background-color: var(--color-backdrop);
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap; // ✅ allow wrapping
+  gap: var(--space-sm); // ✅ space between items
+  align-items: flex-start;
+  padding: var(--space-sm);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > * {
+    flex: 1 1 calc(50% - var(--space-sm)); // ✅ 2 per row
+    max-width: calc(50% - var(--space-sm));
+  }
 }
