@@ -7,7 +7,7 @@ import { allSteps } from "./stepIndex";
 import StepRenderer from "./StepRenderer";
 import { Step } from "types/Step";
 
-import { useFieldCardStore } from "store/fieldCardStore";
+import { useFieldCardStore } from "store/useFieldCardStore";
 
 import { FieldCardFormData } from "types/FieldCard";
 
@@ -22,7 +22,15 @@ export type FertilizerType =
   | "Deluxe Speed-Gro"
   | "Hyper Speed-Gro";
 
-export default function CreateFieldCardModal() {
+type CreateFieldCardModalProps = {
+  modalOpen: boolean;
+  closeModal: () => void;
+};
+
+export default function CreateFieldCardModal({
+  modalOpen,
+  closeModal,
+}: CreateFieldCardModalProps) {
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<FieldCardFormData>({
     name: "",
@@ -120,16 +128,41 @@ export default function CreateFieldCardModal() {
   };
 
   const handleConfirm = () => {
+    console.log("handleConfirm called");
     const complete: FieldCardFormData = {
       ...answers,
       tileCount: calculateTileCount(),
     };
+    console.log("complete created");
 
-    useFieldCardStore.getState().addFieldCard(complete);
+    useFieldCardStore.getState().addCard(complete);
+    console.log("state updated");
+    console.log("beofre closeModal");
+    handleClose();
+    console.log("modal close called");
+  };
+
+  const handleClose = () => {
+    setStepIndex(0);
+    setAnswers({
+      name: "",
+      layoutType: "Select",
+      tileCount: 0,
+      fertilizerType: "None",
+      fertilizerCost: null,
+      paysForFertilizer: false,
+      seedCost: null,
+      paysForSeeds: false,
+    });
+    setSprinklerCount(null);
+    setSprinklerType("Sprinkler");
+    setPressureNozzle(false);
+    setVisibleSteps([allSteps[0], allSteps[1]]);
+    closeModal();
   };
 
   return (
-    <Modal isOpen={true}>
+    <Modal isOpen={modalOpen} onClose={handleClose}>
       <div className={styles.container}>
         <p>{currentStep.label}</p>
 

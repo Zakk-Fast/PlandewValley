@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import MenuPanel from "app/components/menuPanel/MenuPanel";
 import PlannerHeader from "app/components/plannerHeader/PlannerHeader";
 import CropLibrary from "app/components/cropLibrary/CropLibrary";
@@ -8,6 +12,8 @@ import NewFieldCardModal from "app/components/newFieldCardModal/CreateFieldCardM
 import style from "./planner.module.scss";
 
 export default function PlannerPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
       <MenuPanel>
@@ -19,14 +25,18 @@ export default function PlannerPage() {
               <CropLibrary />
             </div>
             <div className={style["planner__plot-grid"]}>
-              <PlannerPlot />
+              <PlannerPlot setModalOpen={setModalOpen} />
             </div>
           </div>
 
           <div className={style.planner__profit}>Profit Foot</div>
         </div>
       </MenuPanel>
-      <NewFieldCardModal />;
+      <NewFieldCardModal
+        modalOpen={modalOpen}
+        closeModal={() => setModalOpen(false)}
+      />
+      ;
     </>
   );
 }

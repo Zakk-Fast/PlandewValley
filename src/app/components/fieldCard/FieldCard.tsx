@@ -3,13 +3,18 @@ import Card from "../card/Card";
 import Button from "../button/Button";
 
 import style from "./FieldCard.module.scss";
+import { FieldCardData } from "types/FieldCard";
 
 type InfoEntry = {
   label: string;
   value: string | React.ReactNode;
 };
 
-export function FieldCard() {
+type Props = {
+  card: FieldCardData;
+};
+export function FieldCard({ card }: Props) {
+  console.log(card);
   const infoRows: InfoEntry[] = [
     { label: "Total Plots", value: "48" },
     { label: "Layout Type", value: "Custom" },
