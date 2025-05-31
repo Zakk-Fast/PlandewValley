@@ -1,5 +1,5 @@
 import Checkbox from "app/components/checkbox/Checkbox";
-import { FieldCardFormData } from "../CreateFieldCardModal";
+import { FieldCardFormData } from "types/FieldCard";
 
 export default function CostStep({
   answers,

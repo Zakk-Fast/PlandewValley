@@ -1,5 +1,5 @@
 import Select from "app/components/select/Select";
-import { FertilizerType, FieldCardFormData } from "../CreateFieldCardModal";
+import { FertilizerType, FieldCardFormData } from "types/FieldCard";
 
 const fertilizerOptions = [
   "None",

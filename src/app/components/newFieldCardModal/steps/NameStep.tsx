@@ -1,5 +1,6 @@
 import Input from "app/components/input/Input";
-import { FieldCardFormData } from "../CreateFieldCardModal";
+import { FieldCardFormData } from "types/FieldCard";
+
 
 export default function NameStep({
   answers,
