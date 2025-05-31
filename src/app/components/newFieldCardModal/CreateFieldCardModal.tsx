@@ -22,21 +22,8 @@ export type FertilizerType =
   | "Deluxe Speed-Gro"
   | "Hyper Speed-Gro";
 
-// export type FieldCardFormData = {
-//   name: string;
-//   layoutType: "Custom" | "Preset" | "Select";
-//   tileCount: number;
-//   fertilizerType: FertilizerType;
-//   fertilizerCost: number | null;
-//   paysForFertilizer: boolean;
-//   seedCost: number | null;
-//   paysForSeeds: boolean;
-// };
-
 export default function CreateFieldCardModal() {
   const [stepIndex, setStepIndex] = useState(0);
-  // const addFieldCard = useFieldCardStore((state) => state.addFieldCard);
-
   const [answers, setAnswers] = useState<FieldCardFormData>({
     name: "",
     layoutType: "Select",
@@ -47,13 +34,11 @@ export default function CreateFieldCardModal() {
     seedCost: null,
     paysForSeeds: false,
   });
-
   const [sprinklerCount, setSprinklerCount] = useState<number | null>(null);
   const [sprinklerType, setSprinklerType] = useState<
     "Sprinkler" | "Quality Sprinkler" | "Iridium Sprinkler"
   >("Sprinkler");
   const [pressureNozzle, setPressureNozzle] = useState(false);
-
   const [visibleSteps, setVisibleSteps] = useState<Step[]>([
     allSteps[0],
     allSteps[1],
