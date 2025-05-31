@@ -5,13 +5,13 @@ import CustomTileCountStep from "./steps/CustomTileCountStep";
 import SprinklerSetupStep from "./steps/SprinklerSetupStep";
 import FertilizerStep from "./steps/FertilizerStep";
 import CostStep from "./steps/CostStep";
-import { FieldCardFormData } from "./CreateFieldCardModal";
+import { FieldCardFormData } from "types/FieldCard";
 
 type Props = {
   step: StepId;
   answers: FieldCardFormData;
   setAnswers: React.Dispatch<React.SetStateAction<FieldCardFormData>>;
-  onLayoutTypeSelect: (type: "Preset" | "Custom" | 'Select') => void;
+  onLayoutTypeSelect: (type: "Preset" | "Custom" | "Select") => void;
   sprinklerCount?: number | null;
   setSprinklerCount?: (n: number | null) => void;
   sprinklerType?: "Sprinkler" | "Quality Sprinkler" | "Iridium Sprinkler";

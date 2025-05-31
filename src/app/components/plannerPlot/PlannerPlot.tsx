@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import Button from "../button/Button";
 import { FieldCard } from "../fieldCard/FieldCard";
 import { useFieldCardStore } from "store/useFieldCardStore";
@@ -13,10 +12,6 @@ type PlannerPlot = {
 
 export default function PlannerPlot({ setModalOpen }: PlannerPlot) {
   const cards = useFieldCardStore((state) => state.cards);
-
-  useEffect(() => {
-    console.log("persisant field card data", cards);
-  }, [cards]);
 
   return (
     <div className={style.planner_plot}>

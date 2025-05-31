@@ -1,6 +1,6 @@
 .field_card {
   width: 318px;
-  height: auto;
+  height: 408px;
   padding: var(--space-md);
 
   &__header {
@@ -36,6 +36,9 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+    }
+    &--plot--last {
+      height: 40px;
     }
   }
 
