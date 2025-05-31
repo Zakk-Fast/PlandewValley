@@ -9,12 +9,11 @@ export type FertilizerType =
 
 export type FieldCardFormData = {
   name: string;
-  layoutType: "Custom" | "Preset";
+  layoutType: "Custom" | "Preset" | "Select";
   tileCount: number;
   fertilizerType: FertilizerType;
   paysForFertilizer: boolean;
   paysForSeeds: boolean;
-  cropImageSrc: string | null;
   seedCost: number | null;
   fertilizerCost: number | null;
 };
@@ -24,6 +23,7 @@ export type FieldCardData = FieldCardFormData & {
   initialized: boolean;
   cropId: string | null;
   cropName: string | null;
+  cropImageSrc: string | null;
   daysToFirstHarvest: number | null;
   daysToSubsequentHarvest: number | null;
 };

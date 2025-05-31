@@ -5,8 +5,13 @@ import Modal from "../modal/Modal";
 import Button from "../button/Button";
 import { allSteps } from "./stepIndex";
 import StepRenderer from "./StepRenderer";
-import styles from "./NewFieldCardModal.module.scss";
 import { Step } from "types/Step";
+
+import { useFieldCardStore } from "store/fieldCardStore";
+
+import { FieldCardFormData } from "types/FieldCard";
+
+import styles from "./NewFieldCardModal.module.scss";
 
 export type FertilizerType =
   | "None"
@@ -17,19 +22,20 @@ export type FertilizerType =
   | "Deluxe Speed-Gro"
   | "Hyper Speed-Gro";
 
-export type FieldCardFormData = {
-  name: string;
-  layoutType: "Custom" | "Preset" | "Select";
-  tileCount: number;
-  fertilizerType: FertilizerType;
-  fertilizerCost: number | null;
-  paysForFertilizer: boolean;
-  seedCost: number | null;
-  paysForSeeds: boolean;
-};
+// export type FieldCardFormData = {
+//   name: string;
+//   layoutType: "Custom" | "Preset" | "Select";
+//   tileCount: number;
+//   fertilizerType: FertilizerType;
+//   fertilizerCost: number | null;
+//   paysForFertilizer: boolean;
+//   seedCost: number | null;
+//   paysForSeeds: boolean;
+// };
 
 export default function CreateFieldCardModal() {
   const [stepIndex, setStepIndex] = useState(0);
+  // const addFieldCard = useFieldCardStore((state) => state.addFieldCard);
 
   const [answers, setAnswers] = useState<FieldCardFormData>({
     name: "",
@@ -87,7 +93,7 @@ export default function CreateFieldCardModal() {
     setStepIndex((prev) => Math.max(prev - 1, 0));
   };
 
-  const calculateTileCount = () => {
+  const calculateTileCount = (): number => {
     if (answers.layoutType === "Custom") {
       return answers.tileCount;
     }
@@ -108,27 +114,21 @@ export default function CreateFieldCardModal() {
     switch (currentStep.id) {
       case "name":
         return answers.name.trim().length > 0;
-
       case "customTileCount":
         return answers.tileCount > 0;
-
       case "sprinklerCount":
         return sprinklerCount !== null && sprinklerCount > 0;
-
       case "layoutType":
         return (
           answers.layoutType === "Preset" || answers.layoutType === "Custom"
         );
-
       case "fertilizer":
         return !!answers.fertilizerType;
-
       case "cost":
         return !(
           (answers.paysForSeeds && answers.seedCost === null) ||
           (answers.paysForFertilizer && answers.fertilizerCost === null)
         );
-
       default:
         return true;
     }
@@ -140,10 +140,8 @@ export default function CreateFieldCardModal() {
       tileCount: calculateTileCount(),
     };
 
-    console.log("Final FieldCard:", complete);
+    useFieldCardStore.getState().addFieldCard(complete);
   };
-
-  console.log("Current layoutType:", answers.layoutType);
 
   return (
     <Modal isOpen={true}>
