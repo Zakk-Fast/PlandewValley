@@ -1,13 +1,20 @@
-import { ReactNode } from "react";
-import style from "./Card.module.scss";
+// components/card/Card.tsx
+import { forwardRef } from "react";
+import styles from "./Card.module.scss";
 
-type CardProps = {
-  children: ReactNode;
+type Props = {
+  children: React.ReactNode;
   className?: string;
 };
 
-export default function Card({ children, className }: CardProps) {
-  return (
-    <div className={`${style.card} ${className || ""}`.trim()}>{children}</div>
-  );
-}
+const Card = forwardRef<HTMLDivElement, Props>(
+  ({ children, className }, ref) => (
+    <div ref={ref} className={`${styles.card} ${className || ""}`}>
+      {children}
+    </div>
+  )
+);
+
+Card.displayName = "Card";
+
+export default Card;

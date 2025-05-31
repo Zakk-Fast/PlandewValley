@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef, useEffect } from "react";
+import { useDrag } from "react-dnd";
 import Image from "next/image";
 import Card from "../card/Card";
 
@@ -23,9 +27,29 @@ export default function CropCard({
   baseGoldPerDay,
   growth,
 }: CropCardProps) {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: "CROP",
+    item: { name, image_key },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  }));
+
+  useEffect(() => {
+    if (ref.current) {
+      drag(ref.current);
+    }
+  }, [drag]);
+
   return (
     <Card>
-      <div className={style.crop_card}>
+      <div
+        ref={ref}
+        className={style.crop_card}
+        style={{ opacity: isDragging ? 0.5 : 1 }}
+      >
         {/* crop info */}
         <div className={style.crop_card__info}>
           <div className={style.crop_card__name}>
@@ -38,6 +62,7 @@ export default function CropCard({
               className={style.crop_card__icon}
             />
           </div>
+
           {/* crop stats */}
           <div className={style.crop_card__stats}>
             <div className={style["crop_card__stats"]}>

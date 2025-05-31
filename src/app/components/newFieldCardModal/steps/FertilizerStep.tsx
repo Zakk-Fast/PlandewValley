@@ -1,15 +1,6 @@
 import Select from "app/components/select/Select";
-import { FertilizerType, FieldCardFormData } from "types/FieldCard";
-
-const fertilizerOptions = [
-  "None",
-  "Basic",
-  "Quality",
-  "Deluxe",
-  "Speed-Gro",
-  "Deluxe Speed-Gro",
-  "Hyper Speed-Gro",
-];
+import { FieldCardFormData } from "types/FieldCard";
+import { fertilizers } from "@/data/fertilizers";
 
 export default function FertilizerStep({
   answers,
@@ -20,15 +11,17 @@ export default function FertilizerStep({
 }) {
   return (
     <Select
-      id="fertilizerType"
-      options={fertilizerOptions}
-      value={answers.fertilizerType}
-      onChange={(e) =>
+      id="fertilizer"
+      options={fertilizers.map((f) => f.name)}
+      value={answers.fertilizer?.name ?? ""}
+      onChange={(e) => {
+        const selected =
+          fertilizers.find((f) => f.name === e.target.value) ?? null;
         setAnswers((prev) => ({
           ...prev,
-          fertilizerType: e.target.value as FertilizerType,
-        }))
-      }
+          fertilizer: selected,
+        }));
+      }}
     />
   );
 }

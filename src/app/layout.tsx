@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-
 import Header from "./components/header/Header";
+import DndWrapper from "./components/DndWrapper/DndWrapper";
 
 import "./globals.css";
 
@@ -19,9 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <div className="wrapper">{children}</div>
+        <DndWrapper>
+          <div className="wrapper">{children}</div>
+        </DndWrapper>
         {/* <Footer /> */}
-        {/* @TODO: Replace footer with a ? and pop-out */}
       </body>
     </html>
   );

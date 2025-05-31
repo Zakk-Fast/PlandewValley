@@ -1,17 +1,10 @@
-export type FertilizerType =
-  | "None"
-  | "Basic Fertilizer"
-  | "Quality Fertilizer"
-  | "Deluxe Fertilizer"
-  | "Speed-Gro"
-  | "Deluxe Speed-Gro"
-  | "Hyper Speed-Gro";
+import { Fertilizer } from "./Fertilizers";
 
 export type FieldCardFormData = {
   name: string;
   layoutType: "Custom" | "Preset" | "Select";
   tileCount: number;
-  fertilizerType: FertilizerType;
+  fertilizer: Fertilizer | null;
   paysForFertilizer: boolean;
   paysForSeeds: boolean;
   seedCost: number | null;

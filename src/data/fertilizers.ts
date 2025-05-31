@@ -1,0 +1,101 @@
+import { QualityDistribution, Fertilizer } from "types/Fertilizers";
+
+const noneDistribution: QualityDistribution = Object.fromEntries(
+  Array.from({ length: 15 }, (_, level) => [
+    level,
+    { regular: 1, silver: 0, gold: 0, iridium: 0 },
+  ])
+);
+
+export const fertilizers: Fertilizer[] = [
+  {
+    name: "None",
+    price: null,
+    speedModifier: 0,
+    qualityDistribution: noneDistribution,
+  },
+  {
+    name: "Basic Fertilizer",
+    price: 100,
+    speedModifier: 0,
+    qualityDistribution: {
+      0: { regular: 0.88, silver: 0.08, gold: 0.04, iridium: 0 },
+      1: { regular: 0.77, silver: 0.15, gold: 0.08, iridium: 0 },
+      2: { regular: 0.68, silver: 0.2, gold: 0.12, iridium: 0 },
+      3: { regular: 0.59, silver: 0.26, gold: 0.15, iridium: 0 },
+      4: { regular: 0.5, silver: 0.31, gold: 0.19, iridium: 0 },
+      5: { regular: 0.42, silver: 0.35, gold: 0.23, iridium: 0 },
+      6: { regular: 0.35, silver: 0.39, gold: 0.26, iridium: 0 },
+      7: { regular: 0.28, silver: 0.42, gold: 0.3, iridium: 0 },
+      8: { regular: 0.22, silver: 0.44, gold: 0.34, iridium: 0 },
+      9: { regular: 0.16, silver: 0.47, gold: 0.37, iridium: 0 },
+      10: { regular: 0.15, silver: 0.44, gold: 0.41, iridium: 0 },
+      11: { regular: 0.14, silver: 0.41, gold: 0.45, iridium: 0 },
+      12: { regular: 0.13, silver: 0.39, gold: 0.48, iridium: 0 },
+      13: { regular: 0.12, silver: 0.36, gold: 0.52, iridium: 0 },
+      14: { regular: 0.11, silver: 0.33, gold: 0.56, iridium: 0 },
+    },
+  },
+  {
+    name: "Quality Fertilizer",
+    price: 150,
+    speedModifier: 0,
+    qualityDistribution: {
+      0: { regular: 0.78, silver: 0.14, gold: 0.08, iridium: 0 },
+      1: { regular: 0.64, silver: 0.23, gold: 0.13, iridium: 0 },
+      2: { regular: 0.52, silver: 0.3, gold: 0.18, iridium: 0 },
+      3: { regular: 0.4, silver: 0.36, gold: 0.24, iridium: 0 },
+      4: { regular: 0.3, silver: 0.41, gold: 0.29, iridium: 0 },
+      5: { regular: 0.21, silver: 0.45, gold: 0.34, iridium: 0 },
+      6: { regular: 0.15, silver: 0.45, gold: 0.4, iridium: 0 },
+      7: { regular: 0.14, silver: 0.41, gold: 0.45, iridium: 0 },
+      8: { regular: 0.13, silver: 0.37, gold: 0.5, iridium: 0 },
+      9: { regular: 0.11, silver: 0.33, gold: 0.56, iridium: 0 },
+      10: { regular: 0.1, silver: 0.29, gold: 0.61, iridium: 0 },
+      11: { regular: 0.09, silver: 0.25, gold: 0.66, iridium: 0 },
+      12: { regular: 0.07, silver: 0.21, gold: 0.72, iridium: 0 },
+      13: { regular: 0.06, silver: 0.17, gold: 0.77, iridium: 0 },
+      14: { regular: 0.04, silver: 0.13, gold: 0.82, iridium: 0 },
+    },
+  },
+  {
+    name: "Deluxe Fertilizer",
+    price: 250,
+    speedModifier: 0,
+    qualityDistribution: {
+      0: { regular: 0, silver: 0.84, gold: 0.1, iridium: 0.06 },
+      1: { regular: 0, silver: 0.75, gold: 0.16, iridium: 0.09 },
+      2: { regular: 0, silver: 0.66, gold: 0.22, iridium: 0.13 },
+      3: { regular: 0, silver: 0.57, gold: 0.27, iridium: 0.16 },
+      4: { regular: 0, silver: 0.49, gold: 0.31, iridium: 0.2 },
+      5: { regular: 0, silver: 0.42, gold: 0.35, iridium: 0.23 },
+      6: { regular: 0, silver: 0.35, gold: 0.39, iridium: 0.27 },
+      7: { regular: 0, silver: 0.28, gold: 0.42, iridium: 0.3 },
+      8: { regular: 0, silver: 0.22, gold: 0.45, iridium: 0.34 },
+      9: { regular: 0, silver: 0.16, gold: 0.47, iridium: 0.37 },
+      10: { regular: 0, silver: 0.11, gold: 0.48, iridium: 0.41 },
+      11: { regular: 0, silver: 0.07, gold: 0.49, iridium: 0.44 },
+      12: { regular: 0, silver: 0.03, gold: 0.5, iridium: 0.47 },
+      13: { regular: 0, silver: 0, gold: 0.49, iridium: 0.51 },
+      14: { regular: 0, silver: 0, gold: 0.46, iridium: 0.55 },
+    },
+  },
+  {
+    name: "Speed-Gro",
+    price: 100,
+    speedModifier: -0.1,
+    qualityDistribution: noneDistribution,
+  },
+  {
+    name: "Deluxe Speed-Gro",
+    price: 150,
+    speedModifier: -0.25,
+    qualityDistribution: noneDistribution,
+  },
+  {
+    name: "Hyper Speed-Gro",
+    price: 250,
+    speedModifier: -0.33,
+    qualityDistribution: noneDistribution,
+  },
+];

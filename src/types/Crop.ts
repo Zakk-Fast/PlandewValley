@@ -45,3 +45,18 @@ export type Crop = {
   description: string;
   notes: string | null;
 };
+
+// @TODO: This is temp for building calcuations. DO NOT KEEP.
+export type PartialCrop = {
+  name?: string;
+  season?: Seasons[];
+  image_key?: string;
+  category?: CropCategory;
+  seed_price?: number | null;
+  growth?: Partial<GrowthTime>;
+  sell_prices?: Partial<SellPrices>;
+  base_gold_per_day?: number;
+  artisan_products?: ProcessType[];
+  description?: string;
+  notes?: string | null;
+};

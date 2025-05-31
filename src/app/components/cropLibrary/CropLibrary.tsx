@@ -3,7 +3,7 @@
 import CropCard from "../cropCard/CropCard";
 import Select from "../select/Select";
 
-import Crops from "../../data/crops.json";
+import Crops from "../../../data/crops.json";
 import style from "./CropLibrary.module.scss";
 import { useState } from "react";
 

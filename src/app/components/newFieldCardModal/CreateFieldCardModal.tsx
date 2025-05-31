@@ -8,19 +8,11 @@ import StepRenderer from "./StepRenderer";
 import { Step } from "types/Step";
 
 import { useFieldCardStore } from "store/useFieldCardStore";
-
 import { FieldCardFormData } from "types/FieldCard";
 
-import styles from "./NewFieldCardModal.module.scss";
+import { fertilizers } from "@/data/fertilizers";
 
-export type FertilizerType =
-  | "None"
-  | "Basic"
-  | "Quality"
-  | "Deluxe"
-  | "Speed-Gro"
-  | "Deluxe Speed-Gro"
-  | "Hyper Speed-Gro";
+import styles from "./NewFieldCardModal.module.scss";
 
 type CreateFieldCardModalProps = {
   modalOpen: boolean;
@@ -32,11 +24,12 @@ export default function CreateFieldCardModal({
   closeModal,
 }: CreateFieldCardModalProps) {
   const [stepIndex, setStepIndex] = useState(0);
+  const defaultFertilizer = fertilizers.find((f) => f.name === "None")!;
   const [answers, setAnswers] = useState<FieldCardFormData>({
     name: "",
     layoutType: "Select",
     tileCount: 0,
-    fertilizerType: "None",
+    fertilizer: defaultFertilizer,
     fertilizerCost: null,
     paysForFertilizer: false,
     seedCost: null,
@@ -116,7 +109,7 @@ export default function CreateFieldCardModal({
           answers.layoutType === "Preset" || answers.layoutType === "Custom"
         );
       case "fertilizer":
-        return !!answers.fertilizerType;
+        return answers.fertilizer !== null;
       case "cost":
         return !(
           (answers.paysForSeeds && answers.seedCost === null) ||
@@ -128,18 +121,13 @@ export default function CreateFieldCardModal({
   };
 
   const handleConfirm = () => {
-    console.log("handleConfirm called");
     const complete: FieldCardFormData = {
       ...answers,
       tileCount: calculateTileCount(),
     };
-    console.log("complete created");
 
     useFieldCardStore.getState().addCard(complete);
-    console.log("state updated");
-    console.log("beofre closeModal");
     handleClose();
-    console.log("modal close called");
   };
 
   const handleClose = () => {
@@ -148,7 +136,7 @@ export default function CreateFieldCardModal({
       name: "",
       layoutType: "Select",
       tileCount: 0,
-      fertilizerType: "None",
+      fertilizer: defaultFertilizer,
       fertilizerCost: null,
       paysForFertilizer: false,
       seedCost: null,

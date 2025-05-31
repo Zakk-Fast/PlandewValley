@@ -2,13 +2,16 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { zustandLocalStorage } from "lib/zustandStorage";
 import { Farmer } from "types/Farmer";
+import { Professions } from "types/Professions";
 
-type FarmerState = Farmer & {
+type FarmerStore = Farmer & {
   hasHydrated: boolean;
   setHasHydrated: (value: boolean) => void;
+  setFarmingLevel: (level: number) => void;
+  toggleProfession: (key: keyof Professions) => void;
 };
 
-export const useFarmerStore = create<FarmerState>()(
+export const useFarmerStore = create<FarmerStore>()(
   persist(
     (set) => ({
       farmingLevel: 1,
@@ -22,10 +25,8 @@ export const useFarmerStore = create<FarmerState>()(
       setFarmingLevel: (level) => set({ farmingLevel: level }),
       toggleProfession: (key) =>
         set((state) => {
-          const current = state.professions;
-          const updated = { ...current };
-
-          const toggled = !current[key];
+          const updated = { ...state.professions };
+          const toggled = !updated[key];
           updated[key] = toggled;
 
           if (key === "tiller" && !toggled) {
