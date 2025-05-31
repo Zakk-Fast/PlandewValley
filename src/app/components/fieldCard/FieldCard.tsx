@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef } from "react";
 import { useDrop } from "react-dnd";
 import { useFieldCardStore } from "store/useFieldCardStore";
@@ -23,7 +25,7 @@ export function FieldCard({ card }: Props) {
     name,
     tileCount,
     layoutType,
-    fertilizerType,
+    fertilizer,
     cropImageSrc,
     seedCost,
     paysForSeeds,
@@ -36,7 +38,7 @@ export function FieldCard({ card }: Props) {
   const infoRows: InfoEntry[] = [
     { label: "Total Plots", value: tileCount },
     { label: "Layout Type", value: layoutType },
-    { label: "Fertilizer", value: fertilizerType },
+    { label: "Fertilizer", value: fertilizer?.name ?? "None" },
     {
       label: "Crop",
       value: cropImageSrc ? (
@@ -108,7 +110,9 @@ export function FieldCard({ card }: Props) {
               alt=""
             />
             <div>Seed Price</div>
-            <div>{paysForSeeds && seedCost ? seedCost * tileCount : "0g"}</div>
+            <div>
+              {paysForSeeds && seedCost ? `${seedCost * tileCount}g` : "0g"}
+            </div>
           </div>
           <div>
             <Image
@@ -118,7 +122,11 @@ export function FieldCard({ card }: Props) {
               alt=""
             />
             <div>Fertilizer Cost</div>
-            <div>{paysForFertilizer ? fertilizerCost : "0g"}</div>
+            <div>
+              {paysForFertilizer && fertilizerCost
+                ? `${fertilizerCost}g`
+                : "0g"}
+            </div>
           </div>
           <div>
             <Image
