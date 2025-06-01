@@ -1,11 +1,22 @@
 import { QualityDistribution, Fertilizer } from "types/Fertilizers";
 
-const noneDistribution: QualityDistribution = Object.fromEntries(
-  Array.from({ length: 15 }, (_, level) => [
-    level,
-    { regular: 1, silver: 0, gold: 0, iridium: 0 },
-  ])
-);
+const noneDistribution: QualityDistribution = {
+  0: { regular: 0.97, silver: 0.02, gold: 0.01, iridium: 0 },
+  1: { regular: 0.91, silver: 0.06, gold: 0.03, iridium: 0 },
+  2: { regular: 0.85, silver: 0.1, gold: 0.05, iridium: 0 },
+  3: { regular: 0.8, silver: 0.13, gold: 0.07, iridium: 0 },
+  4: { regular: 0.75, silver: 0.16, gold: 0.09, iridium: 0 },
+  5: { regular: 0.69, silver: 0.2, gold: 0.11, iridium: 0 },
+  6: { regular: 0.64, silver: 0.23, gold: 0.13, iridium: 0 },
+  7: { regular: 0.6, silver: 0.25, gold: 0.15, iridium: 0 },
+  8: { regular: 0.55, silver: 0.28, gold: 0.17, iridium: 0 },
+  9: { regular: 0.5, silver: 0.31, gold: 0.19, iridium: 0 },
+  10: { regular: 0.46, silver: 0.33, gold: 0.21, iridium: 0 },
+  11: { regular: 0.42, silver: 0.35, gold: 0.23, iridium: 0 },
+  12: { regular: 0.38, silver: 0.37, gold: 0.25, iridium: 0 },
+  13: { regular: 0.34, silver: 0.39, gold: 0.27, iridium: 0 },
+  14: { regular: 0.3, silver: 0.41, gold: 0.29, iridium: 0 },
+};
 
 export const fertilizers: Fertilizer[] = [
   {

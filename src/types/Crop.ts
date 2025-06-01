@@ -30,11 +30,11 @@ export const PROCESS_TYPE_GROUPS = {
   special: ["coffee", "beer", "pale_ale"] as ProcessType[],
 };
 
-type Seasons = "Spring" | "Summer" | "Fall" | "Winter";
+type Seasons = "spring" | "summer" | "fall" | "winter";
 
 export type Crop = {
   name: string;
-  season: Seasons[];
+  seasons: Seasons[];
   image_key: string;
   category: CropCategory;
   seed_price: number | null;
@@ -44,19 +44,4 @@ export type Crop = {
   artisan_products: ProcessType[];
   description: string;
   notes: string | null;
-};
-
-// @TODO: This is temp for building calcuations. DO NOT KEEP.
-export type PartialCrop = {
-  name?: string;
-  season?: Seasons[];
-  image_key?: string;
-  category?: CropCategory;
-  seed_price?: number | null;
-  growth?: Partial<GrowthTime>;
-  sell_prices?: Partial<SellPrices>;
-  base_gold_per_day?: number;
-  artisan_products?: ProcessType[];
-  description?: string;
-  notes?: string | null;
 };

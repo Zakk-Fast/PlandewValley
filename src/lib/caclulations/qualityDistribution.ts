@@ -1,13 +1,16 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { Fertilizer } from "types/Fertilizers";
 
-export function getSpeedModifier(fertilizer: Fertilizer): number {
-  // @TODO: Return fertilizer speed multiplier (e.g., 0.9 for Speed-Gro)
-  return 1;
-}
+export function getQualityDistribution(
+  fertilizer: Fertilizer,
+  farmingLevel: number
+): { regular: number; silver: number; gold: number; iridium: number } {
+  const level = Math.max(0, Math.min(14, farmingLevel));
 
-export function isSpeedGro(fertilizer: Fertilizer): boolean {
-  // @TODO: Return true if fertilizer is Speed-Gro type
-  return false;
+  const distribution = fertilizer.qualityDistribution[level];
+
+  if (!distribution) {
+    return { regular: 1, silver: 0, gold: 0, iridium: 0 };
+  }
+
+  return distribution;
 }

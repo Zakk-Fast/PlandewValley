@@ -1,4 +1,6 @@
-[
+import { Crop } from "types/Crop"
+
+export const crops: Crop[] = [
   {
     "name": "Blue Jazz",
     "seasons": ["spring"],

@@ -13,13 +13,15 @@ export default function FertilizerStep({
     <Select
       id="fertilizer"
       options={fertilizers.map((f) => f.name)}
-      value={answers.fertilizer?.name ?? ""}
+      value={answers.fertilizer.name}
       onChange={(e) => {
-        const selected =
-          fertilizers.find((f) => f.name === e.target.value) ?? null;
+        const selected = fertilizers.find((f) => f.name === e.target.value);
+        if (!selected) return;
+
         setAnswers((prev) => ({
           ...prev,
           fertilizer: selected,
+          fertilizerCost: selected.price ?? null,
         }));
       }}
     />

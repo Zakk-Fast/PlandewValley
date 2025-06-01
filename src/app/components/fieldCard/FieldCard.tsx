@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useDrop } from "react-dnd";
 import { useFieldCardStore } from "store/useFieldCardStore";
-import cropData from "../../../data/crops.json";
+import { crops } from "@/data/crops";
 import Image from "next/image";
 import Card from "../card/Card";
 import Button from "../button/Button";
@@ -66,7 +66,7 @@ export function FieldCard({ card }: Props) {
   const [, drop] = useDrop({
     accept: "CROP",
     drop: (item: { name: string; image_key: string }) => {
-      const crop = cropData.find((c) => c.name === item.name);
+      const crop = crops.find((c) => c.name === item.name);
       if (!crop) return;
 
       updateCard(card.id, {

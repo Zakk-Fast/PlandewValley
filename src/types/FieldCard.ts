@@ -4,7 +4,7 @@ export type FieldCardFormData = {
   name: string;
   layoutType: "Custom" | "Preset" | "Select";
   tileCount: number;
-  fertilizer: Fertilizer | null;
+  fertilizer: Fertilizer;
   paysForFertilizer: boolean;
   paysForSeeds: boolean;
   seedCost: number | null;
