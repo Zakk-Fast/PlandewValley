@@ -10,7 +10,7 @@ export default function FarmerInfo() {
   const setFarmingLevel = useFarmerStore((state) => state.setFarmingLevel);
   const toggleProfession = useFarmerStore((state) => state.toggleProfession);
 
-  const selectOptions = Array.from({ length: 10 }, (_, i) => i + 1);
+  const selectOptions = Array.from({ length: 14 }, (_, i) => i + 1);
 
   return (
     <div className={style["farmer-info"]}>

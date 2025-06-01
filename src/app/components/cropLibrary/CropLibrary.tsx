@@ -21,7 +21,9 @@ export default function CropLibrary() {
     selection.toLowerCase() === "all"
       ? crops
       : crops.filter((crop: Crop) =>
-          crop.seasons.includes(selection as Crop["seasons"][number])
+          crop.seasons.includes(
+            selection.toLowerCase() as Crop["seasons"][number]
+          )
         );
 
   return (
