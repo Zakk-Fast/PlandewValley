@@ -11,6 +11,7 @@ type FieldCardState = {
   clearCrop: (id: string) => void;
   updateCard: (id: string, updates: Partial<FieldCardData>) => void;
   setHasHydrated: (value: boolean) => void;
+  removeCard: (id: string) => void;
 };
 
 export const useFieldCardStore = create<FieldCardState>()(
@@ -37,6 +38,10 @@ export const useFieldCardStore = create<FieldCardState>()(
             },
           ],
         })),
+      removeCard: (id) =>
+        set((state) => ({
+          cards: state.cards.filter((card) => card.id !== id),
+        })),
       clearCrop: (id) =>
         set((state) => ({
           cards: state.cards.map((card) =>
@@ -59,7 +64,7 @@ export const useFieldCardStore = create<FieldCardState>()(
         })),
     }),
     {
-      name: "plandew-field-cards-alt",
+      name: "plandew-field-cards",
       storage: createJSONStorage(() => zustandLocalStorage),
       onRehydrateStorage: () => {
         return (state) => {

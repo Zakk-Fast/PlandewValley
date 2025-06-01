@@ -10,6 +10,7 @@ import Button from "../button/Button";
 
 import style from "./FieldCard.module.scss";
 import { FieldCardData } from "types/FieldCard";
+import { getAdjustedGrowthTime } from "lib/caclulations/cropGrowth";
 
 type InfoEntry = {
   label: string;
@@ -29,11 +30,15 @@ export function FieldCard({ card }: Props) {
     cropImageSrc,
     seedCost,
     paysForSeeds,
-    fertilizerCost,
     paysForFertilizer,
     daysToFirstHarvest,
     daysToSubsequentHarvest,
   } = card;
+
+  const adjustedFirstHarvest =
+    daysToFirstHarvest && fertilizer
+      ? getAdjustedGrowthTime(daysToFirstHarvest, fertilizer)
+      : daysToFirstHarvest;
 
   const infoRows: InfoEntry[] = [
     { label: "Total Plots", value: tileCount },
@@ -56,6 +61,7 @@ export function FieldCard({ card }: Props) {
 
   const cardRef = useRef<HTMLDivElement>(null);
   const updateCard = useFieldCardStore((state) => state.updateCard);
+  const removeCard = useFieldCardStore((state) => state.removeCard);
 
   const [, drop] = useDrop({
     accept: "CROP",
@@ -80,8 +86,7 @@ export function FieldCard({ card }: Props) {
       <div className={style.field_card__header}>
         <p className={style["field_card__header--title"]}>{name}</p>
         <div className={style["field_card__header--controls"]}>
-          <Button>?</Button>
-          <Button>X</Button>
+          <Button onClick={() => removeCard(card.id)}>X</Button>
         </div>
       </div>
 
@@ -123,8 +128,8 @@ export function FieldCard({ card }: Props) {
             />
             <div>Fertilizer Cost</div>
             <div>
-              {paysForFertilizer && fertilizerCost
-                ? `${fertilizerCost}g`
+              {paysForFertilizer && fertilizer
+                ? `${(fertilizer.price ?? 0) * tileCount}g`
                 : "0g"}
             </div>
           </div>
@@ -137,17 +142,13 @@ export function FieldCard({ card }: Props) {
             />
             <div>Harvest Time</div>
             <div>
-              {daysToFirstHarvest ?? "0 Days"}
+              {adjustedFirstHarvest ?? "0 Days"}
               {daysToSubsequentHarvest ? `/${daysToSubsequentHarvest}` : ""}
             </div>
           </div>
         </div>
 
-        <div className={style["field_card__crop-control"]}>
-          <Button className={style["field_card__crop-control--button"]}>
-            clear crops
-          </Button>
-        </div>
+        <div className={style["field_card__crop-control"]}></div>
       </div>
     </Card>
   );

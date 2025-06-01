@@ -1,16 +1,33 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-import { Crop } from "types/Crop";
-import { Farmer } from "types/Farmer";
 import { Fertilizer } from "types/Fertilizers";
+import { useFarmerStore } from "store/useFarmerStore";
 
+/**
+ * Calculates adjusted time to first harvest based on speed bonuses.
+ * Pulls agriculturist flag from farmer state.
+ *
+ * @param baseDays - The crop’s unmodified time to grow.
+ * @param fertilizer - The selected fertilizer (may have a speed modifier).
+ * @returns Adjusted growth time in days (minimum 1).
+ */
 export function getAdjustedGrowthTime(
-  crop: Crop,
-  farmer: Farmer,
-  fertilizer: Fertilizer
+  baseDays: number,
+  fertilizer: Fertilizer | null
 ): number {
-  // @TODO: Apply agriculturist bonus
-  // @TODO: Apply fertilizer speed modifier
-  // @TODO: Return adjusted base growth time (min 1 day)
-  return crop.growth.base_days;
+  const agriculturist =
+    typeof window !== "undefined"
+      ? useFarmerStore.getState().professions.agriculturist
+      : false;
+
+  let speedBonus = 0;
+
+  if (fertilizer?.speedModifier) {
+    speedBonus += fertilizer.speedModifier;
+  }
+
+  if (agriculturist) {
+    speedBonus += 0.1;
+  }
+
+  const adjusted = Math.floor(baseDays * (1 - speedBonus));
+  return Math.max(1, adjusted);
 }

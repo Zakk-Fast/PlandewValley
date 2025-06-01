@@ -83,19 +83,19 @@ export const fertilizers: Fertilizer[] = [
   {
     name: "Speed-Gro",
     price: 100,
-    speedModifier: -0.1,
+    speedModifier: 0.1,
     qualityDistribution: noneDistribution,
   },
   {
     name: "Deluxe Speed-Gro",
     price: 150,
-    speedModifier: -0.25,
+    speedModifier: 0.25,
     qualityDistribution: noneDistribution,
   },
   {
     name: "Hyper Speed-Gro",
     price: 250,
-    speedModifier: -0.33,
+    speedModifier: 0.33,
     qualityDistribution: noneDistribution,
   },
 ];
