@@ -10,6 +10,7 @@ import PlannerPlot from "app/components/plannerPlot/PlannerPlot";
 import NewFieldCardModal from "app/components/newFieldCardModal/CreateFieldCardModal";
 
 import style from "./planner.module.scss";
+import PlannerFooter from "app/components/plannerFooter/PlannerFooter";
 
 export default function PlannerPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -29,7 +30,9 @@ export default function PlannerPage() {
             </div>
           </div>
 
-          <div className={style.planner__profit}>Profit Foot</div>
+          <div className={style.planner__profit}>
+            <PlannerFooter />
+          </div>
         </div>
       </MenuPanel>
       <NewFieldCardModal

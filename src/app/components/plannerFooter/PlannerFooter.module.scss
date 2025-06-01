@@ -1,0 +1,10 @@
+.planner_footer {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--sp-4);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-weight: 500;
+  font-size: var(--fs-md);
+  gap: var(--sp-4);
+}

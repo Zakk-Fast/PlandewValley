@@ -1,27 +1,22 @@
 import style from "./PlannerFooter.module.scss";
 
 export default function PlannerFooter() {
+  // Placeholder values (replace with actual derived data later)
+  const totalSeedCost = 2400;
+  const totalFertilizerCost = 960;
+  const totalValue = 6200;
+
   return (
     <div className={style.planner_footer}>
-      <div>Total Seed Cost</div> {/*totalSeedCost */}
-      <div>Total Fertilizer Cost</div> {/* totalFertilizerCost */}
-      <div>Total Value</div> {/* totalValue */}
-      <div></div>
+      <div>
+        <strong>Total Seed Cost:</strong> {totalSeedCost}g
+      </div>
+      <div>
+        <strong>Total Fertilizer Cost:</strong> {totalFertilizerCost}g
+      </div>
+      <div>
+        <strong>Total Value:</strong> {totalValue}g
+      </div>
     </div>
   );
 }
-
-
-/*
-
-return {
-    averageCropSellPrice: priceWithTiller,
-    cropsPerSeason: harvests.length,
-    totalYield,
-    totalValue,
-    totalSeedCost,
-    totalFertilizerCost,
-    harvests,
-  };
-
-*/
