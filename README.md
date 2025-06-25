@@ -2,7 +2,7 @@
 
 **Plandew Valley** is a cozy, browser-based planning tool for Stardew Valley players who want to optimize their crop layouts, maximize seasonal profits, and experiment with field designs. Built for fans who love both strategy and aesthetics, the app blends drag-and-drop mechanics with real-time profit calculations. Currently only supports Spring.
 
-![Screenshot 2025-06-25 123605](https://github.com/user-attachments/assets/2494be2e-c57e-42ae-be6f-ba7b7da3977a)
+![ezgif-68b7ef33d635a3](https://github.com/user-attachments/assets/c939e944-13ca-4e08-a86e-c4b2b3326176)
 
 ---
 
